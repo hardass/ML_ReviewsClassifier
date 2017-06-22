@@ -25,8 +25,4 @@ else:
     for line in post_input:
         print(line)
     # for word in sorted(words):
-<<<<<<< HEAD
         # print("'{0}' unique number is {1}".format(word, words[word]))
-=======
-        # print("'{0}' unique number is {1}".format(word, words[word]))
->>>>>>> 65be23a1e640bbb5921e5bdbb80ce31101096da8
