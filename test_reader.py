@@ -11,7 +11,8 @@ else:
     # words = collections.defaultdict(int)
     strip = string.whitespace + string.punctuation + string.digits + "\"'"
     for filename in sys.argv[1:]:
-        post_input = []
+        post_train_content = []
+        post_train_class = []
         for line in open(filename):
             post_line = []
             for word in line.split():
@@ -21,8 +22,8 @@ else:
                         words[word] = i
                         i = i + 1
                     post_line.append(words[word])
-            post_input.append(post_line)
-    for line in post_input:
+            post_train_content.append(post_line)
+    for line in post_train_content:
         print(line)
     # for word in sorted(words):
         # print("'{0}' unique number is {1}".format(word, words[word]))
