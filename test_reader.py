@@ -15,6 +15,7 @@ else:
         post_train_class = []
         for line in open(filename):
             post_line = []
+            post_train_class.append(int(line.split(' ',1)[0]))
             for word in line.split():
                 word = word.strip(strip)
                 if len(word) >= 2:
@@ -23,7 +24,11 @@ else:
                         i = i + 1
                     post_line.append(words[word])
             post_train_content.append(post_line)
-    for line in post_train_content:
-        print(line)
+    # print(post_train_class)
+    print(post_train_content)
+    # for i in range(0, 20):
+	#     print(post_train_content[i])
+    # for line in post_train_content:
+    #     print(line)
     # for word in sorted(words):
         # print("'{0}' unique number is {1}".format(word, words[word]))
