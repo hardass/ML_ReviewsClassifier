@@ -22,7 +22,8 @@ else:
                         i = i + 1
                     post_line.append(words[word])
             post_input.append(post_line)
-    for line in post_input:
-        print(line)
+    print(post_input)
+    # for line in post_input:
+    #     print(line)
     # for word in sorted(words):
         # print("'{0}' unique number is {1}".format(word, words[word]))
