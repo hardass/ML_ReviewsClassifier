@@ -49,7 +49,12 @@ x_train = []
 y_train = []
 for line in open("train.txt"):
     post_line = []
-    y_train.append(int(line.split(' ', 1)[0]))
+    if int(line.split(' ', 1)[0]) = 2:
+        continue
+    if int(line.split(' ', 1)[0]) < 2:
+        y_train.append(0)
+    else:
+        y_train.append(1)
     for word in line.split():
         word = word.strip(strip)
         if len(word) >= 2:
