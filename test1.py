@@ -49,7 +49,7 @@ x_train = []
 y_train = []
 for line in open("train.txt"):
     post_line = []
-    if int(line.split(' ', 1)[0]) = 2:
+    if int(line.split(' ', 1)[0]) == 2:
         continue
     if int(line.split(' ', 1)[0]) < 2:
         y_train.append(0)
