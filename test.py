@@ -46,7 +46,7 @@ with np.load(path) as f:
     # x_test, labels_test = f['x_test'], f['y_test']
 
 for i in range (0,20):
-	print(len(x_train[i]))
+	print(x_train[i])
 # print(labels_train[0])
 # print(len(x_train))
 # print(len(labels_train))
