@@ -13,9 +13,10 @@ from keras.layers import LSTM
 from keras.layers import Conv1D, MaxPooling1D
 from keras.datasets import imdb
 import string
+import test
 
 # Embedding
-max_features = 20000
+max_features = 10000
 maxlen = 100
 embedding_size = 128
 
@@ -40,40 +41,7 @@ Only 2 epochs are needed as the dataset is very small.
 print('Loading data...')
 # (x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=max_features)
 
-words = {}
-i = 0
-# words = collections.defaultdict(int)
-strip = string.whitespace + string.punctuation + string.digits + "\"'"
-
-x_train = []
-y_train = []
-for line in open("train.txt"):
-    post_line = []
-    y_train.append(int(line.split(' ', 1)[0]))
-    for word in line.split():
-        word = word.strip(strip)
-        if len(word) >= 2:
-            if words.get(word, 0) == 0:
-                words[word] = i
-                i = i + 1
-            post_line.append(words[word])
-    x_train.append(post_line)
-
-x_test = []
-y_test = []
-for line in open("dev.txt"):
-    post_line = []
-    y_test.append(int(line.split(' ', 1)[0]))
-    for word in line.split():
-        word = word.strip(strip)
-        if len(word) >= 2:
-            if words.get(word, 0) == 0:
-                words[word] = i
-                i = i + 1
-            post_line.append(words[word])
-    x_test.append(post_line)
-
-
+x_train, y_train, x_test, y_test = test.Preparedata("train.txt", "dev.txt", max_features)
 
 print(len(x_train), 'train sequences')
 print(len(x_test), 'test sequences')
@@ -88,7 +56,7 @@ print('Build model...')
 
 model = Sequential()
 model.add(Embedding(max_features, embedding_size, input_length=maxlen))
-model.add(Dropout(0.25))
+model.add(Dropout(0.10))
 model.add(Conv1D(filters,
                  kernel_size,
                  padding='valid',
